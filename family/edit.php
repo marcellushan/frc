@@ -1,6 +1,6 @@
 <?php
 require_once __DIR__ ."/../inc/initialize.php";
-require_once __DIR__ ."/../inc/newheader.php";
+require_once __DIR__ ."/../inc/header.php";
 $family_id = $_GET['id'];
 $family = Family::find_by_id($family_id);
 $family_incomes = FamilyIncome::find_by_sql("select income_id from family_income where family_id = " . $family_id);

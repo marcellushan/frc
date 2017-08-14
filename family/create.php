@@ -1,6 +1,6 @@
 <?php
 require_once __DIR__ ."/../inc/initialize.php";
-require_once __DIR__ ."/../inc/newheader.php";
+require_once __DIR__ ."/../inc/header.php";
 ?>
 <div class="well">
 <form action="store.php" method="post">
