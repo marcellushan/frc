@@ -1,84 +1,84 @@
 <?php
 $servername = $_SERVER['SERVER_NAME'];
-class MySQLdatabase 
+class MySQLdatabase
+{
+	function __construct()
 	{
-		function __construct() 
-			{
-				$this->open_connection();
-			}
-						
-		public function open_connection()
-			{
+		$this->open_connection();
+	}
 
-				     global $servername;
-  						 $db_name = "mysql:host=127.0.0.1;dbname=frc";
-				 if($servername=="localhost")
-				 	{
-						 $user = "marc";
-		  				 $pass = "F1agstaff";
-		  			}
-	  			elseif($servername=="forms.highlands.edu")
-		  			{
-			  			$user = "root";
-	  				 	$pass = "everyonemotiveexplorelately";  
-	  				 }
-	  			else
-		  			{
-			  			$user = "root";
-	  				 	$pass = "europe-guilty-kaleidoscope-head";  
-	  				 }
-				try	
-					 {
-			    		$this->connection = new PDO($db_name, $user, $pass);
-					} 
-						catch (PDOException $e)	
-						 {
-			    				print "Error!: " . $e->getMessage() . "<br/>";
-			    				die();
-						}			
-			}
+	public function open_connection()
+	{
 
-		public function close_connection()
-			{
-				$this->connection = null;			
-			}
+		global $servername;
+		$db_name = "mysql:host=127.0.0.1;dbname=frc";
+		if($servername=="localhost")
+		{
+			$user = "marc";
+			$pass = "F1agstaff";
+		}
+		elseif($servername=="forms.highlands.edu")
+		{
+			$user = "root";
+			$pass = "everyonemotiveexplorelately";
+		}
+		else
+		{
+			$user = "root";
+			$pass = "europe-guilty-kaleidoscope-head";
+		}
+		try
+		{
+			$this->connection = new PDO($db_name, $user, $pass);
+		}
+		catch (PDOException $e)
+		{
+			print "Error!: " . $e->getMessage() . "<br/>";
+			die();
+		}
+	}
 
-		public function countQuery ($sql) 
-				{
-					 $result= $this->connection->prepare($sql);
-	  					$result->execute();
-	  					return $count=$result->rowCount();
-				}
-				
-				public function setQuery ($sql) 
-				{
-					 $result= $this->connection->prepare($sql);
-	  					$result->execute();
-	  					return $result;
-				}
-				  					
+	public function close_connection()
+	{
+		$this->connection = null;
+	}
 
-        public function rawQuery($sql)
-        {
-            $this->open_connection();
-            $this->connection->query($sql);
-        }
-				  					
-				  					
-  			 public function quote($string) 
-	  			 {
-	    			$quoted_string = $this->connection->quote($string);
-	   				 return $quoted_string;
-	  			}
-  					
-				public function fetch_array($result_set)
-					{
-							$result_set= $result_set->fetch(PDO::FETCH_ASSOC);
-							return $result_set;
-					}
+	public function countQuery ($sql)
+	{
+		$result= $this->connection->prepare($sql);
+		$result->execute();
+		return $count=$result->rowCount();
+	}
 
-	} //close class
-	
+	public function setQuery ($sql)
+	{
+		$result= $this->connection->prepare($sql);
+		$result->execute();
+		return $data = $result->fetchall();
+	}
+
+
+	public function rawQuery($sql)
+	{
+		$this->open_connection();
+		$this->connection->query($sql);
+	}
+
+
+	public function quote($string)
+	{
+		$quoted_string = $this->connection->quote($string);
+		return $quoted_string;
+	}
+
+	public function fetch_array($result_set)
+	{
+		$result_set= $result_set->fetch(PDO::FETCH_ASSOC);
+		return $result_set;
+	}
+
+} //close class
+
 $database = new MySQLdatabase();
 
 
