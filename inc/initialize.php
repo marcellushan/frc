@@ -16,6 +16,9 @@ require_once(__DIR__ . '/AbuseFamily.php');
 require_once(__DIR__ . '/Ncfas.php');
 require_once(__DIR__ . '/Category.php');
 require_once(__DIR__ . '/SubCategory.php');
+require_once(__DIR__ . '/Caregiver.php');
+require_once(__DIR__ . '/Children.php');
+require_once(__DIR__ . '/Reabuse.php');
 
 
 // write code class
