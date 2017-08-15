@@ -1,9 +1,9 @@
 <div class="row">
-    <h3 class="col-md-12"><?=$category ?></h3>
+    <h3 class="col-md-12"><?=$name ?></h3>
 </div>
 <div class="col-md-4">
     <label>Intake &nbsp;&nbsp;</label>
-    <select name="<?=$category ?>[intake]">
+    <select name="<?=$sub_category_id ?>[intake]">
         <option value="">Select</option>
         <option value="1">Not Applicable</option>
         <option value="2">Clear Strength</option>
@@ -17,7 +17,7 @@
 </div>
 <div class="col-md-4">
     <label>Interim</label>
-    <select name="<?=$category ?>[interim]">
+    <select name="<?=$sub_category_id ?>[interim]">
         <option value="">Select</option>
         <option value="1">Not Applicable</option>
         <option value="2">Clear Strength</option>
@@ -31,7 +31,7 @@
 </div>
 <div class="col-md-4">
     <label>Closure</label>
-    <select name="<?=$category ?>[closure]">
+    <select name="<?=$sub_category_id ?>[closure]">
         <option value="">Select</option>
         <option value="1">Not Applicable</option>
         <option value="2">Clear Strength</option>
