@@ -1,31 +1,26 @@
 <?php
 require_once __DIR__ ."/../inc/initialize.php";
 require_once __DIR__ ."/../inc/header.php";
+
+$category = Category::find_by_id($_GET['category_id']);
+$family = Family::find_by_id( $_GET['id']);
+
+$sub_categories =SubCategory::find_by_sql("select * from sub_categories where category_id ='" . $_GET['category_id'] . "'");
+//$sub_categories =SubCategory::find_by_id(1);
+//print_r($sub_categories);
 ?>
 <div class="well">
-    <h2 align="center">Category: <?=$_GET['category'] ?></h2>
-<form action="store.php" method="post">
+    <h1><?=$family->name ?></h1>
+    <h2 align="center">Category: <?=$category->name ?></h2>
+<form action="store.php?id=<?=$_GET['id'] ?>&category=<?=$_GET['category_id'] ?>" method="post">
+
     <?php
-    $category = "Housing Stability";
-    include "../inc/ncfas_select.php";
-
-    $category = "Safety in the Community";
-    include "../inc/ncfas_select.php";
-
-    $category = "Environmental Risks";
-    include "../inc/ncfas_select.php";
-
-    $category = "Habitibility of Housing";
-    include "../inc/ncfas_select.php";
-
-    $category = "Personal Hygiene";
-    include "../inc/ncfas_select.php";
-
-    $category = "Learning Environment";
-    include "../inc/ncfas_select.php";
-
-    $category = "Overall Environment";
-    include "../inc/ncfas_select.php";
+    $sub_category_id = 1;
+    foreach($sub_categories as $sub_category) {
+        $name = $sub_category->name;
+        include "../inc/ncfas_select.php";
+        $sub_category_id++;
+    }
     ?>
 
 

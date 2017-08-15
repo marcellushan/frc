@@ -1,45 +1,42 @@
 <?php
 require_once __DIR__ ."/../inc/initialize.php";
-echo '<pre>';
-print_r($_POST);
-echo '</pre>';
 
-//$family = new Family();
-//$family->case_id = $_POST['case_id'];
-//$family->name = $_POST['name'];
-//$family->street = $_POST['street'];
-//$family->city = $_POST['city'];
-//$family->state = $_POST['state'];
-//$family->zip = $_POST['zip'];
-//$family->income_range = $_POST['income_range'];
-//$family->referral = $_POST['referral'];
-//$family->ina_date = $_POST['ina_date'];
-//$family_id =  $family->save();
-//$incomes = $_POST['income_source'];
-//$abuses = $_POST['abuse'];
-////print_r($incomes);
-//foreach ($incomes as $income)
-//{
-//    $family_income = new FamilyIncome();
-//    $family_income->family_id = $family_id;
-//    $family_income->income_id = $income;
-//    $family_income->save();
-//
-//}
-//
-//foreach ($abuses as $abuse)
-//{
-//    $abuse_family = new AbuseFamily();
-//    $abuse_family->family_id = $family_id;
-//    $abuse_family->abuse_id = $abuse;
-//    $abuse_family->save();
-//}
-//?>
-<!---->
-<!--<!DOCTYPE html>-->
-<!--<html>-->
-<!--<head>-->
-<!--    <!-- HTML meta refresh URL redirection -->-->
-<!--    <meta http-equiv="refresh"-->
-<!--          content="0; url=../ncfas/create.php?id=--><?//=$family_id ?><!--&category=environment">-->
-<!--</head>-->
+$posts = $_POST;
+$category = $_GET['category'];
+foreach ($posts as $key => $value)
+{
+    if($value['intake']){
+        $ncfas = new Ncfas();
+        $ncfas->family_id = $_GET['id'];
+        $ncfas->category = $category;
+        $ncfas->step = 1;
+        $ncfas->sub_category = $key;
+        $ncfas->score = $value['intake'];
+        $ncfas->family_id = $_GET['id'];
+        $ncfas->save();
+    }
+
+    if($value['interim']){
+        $ncfas = new Ncfas();
+        $ncfas->family_id = $_GET['id'];
+        $ncfas->category = $category;
+        $ncfas->step = 2;
+        $ncfas->sub_category = $key;
+        $ncfas->score = $value['interim'];
+        $ncfas->family_id = $_GET['id'];
+        $ncfas->save();
+    }
+
+    if($value['closure']){
+        $ncfas = new Ncfas();
+        $ncfas->family_id = $_GET['id'];
+        $ncfas->category = $category;
+        $ncfas->step = 3;
+        $ncfas->sub_category = $key;
+        $ncfas->score = $value['closure'];
+        $ncfas->family_id = $_GET['id'];
+        $ncfas->save();
+    }
+
+}
+
