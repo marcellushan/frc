@@ -8,10 +8,10 @@ class Ncfas extends DatabaseObject {
 	
 	protected static $table_name="ncfas";
 	protected static $unit_id="id";
-		protected static $db_fields = array( 'category','sub_category','step','score','family_id');
+		protected static $db_fields = array( 'category','sub_category','phase','score','family_id');
 		public $type;
 		public $category;
-		public $step;
+		public $phase;
 		public $score;
 		public $family_id;
 

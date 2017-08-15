@@ -40,5 +40,5 @@ foreach ($abuses as $abuse)
 <head>
     <!-- HTML meta refresh URL redirection -->
     <meta http-equiv="refresh"
-          content="0; url=../ncfas/create.php?id=<?=$family_id ?>&category=environment">
+          content="0; url=../ncfas/create.php?id=<?=$family_id ?>&category_id=1">
 </head>

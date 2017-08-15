@@ -2,41 +2,32 @@
 require_once __DIR__ ."/../inc/initialize.php";
 
 $posts = $_POST;
+//print_r($posts);
+$family_id = $_GET['id'];
 $category = $_GET['category'];
+$phase = $_GET['phase'];
 foreach ($posts as $key => $value)
 {
-    if($value['intake']){
+    if($value){
         $ncfas = new Ncfas();
-        $ncfas->family_id = $_GET['id'];
+        $ncfas->family_id = $family_id;
         $ncfas->category = $category;
-        $ncfas->step = 1;
+        $ncfas->phase =$phase;
         $ncfas->sub_category = $key;
-        $ncfas->score = $value['intake'];
+        $ncfas->score = $value;
         $ncfas->family_id = $_GET['id'];
+//        print_r($key);
         $ncfas->save();
     }
-
-    if($value['interim']){
-        $ncfas = new Ncfas();
-        $ncfas->family_id = $_GET['id'];
-        $ncfas->category = $category;
-        $ncfas->step = 2;
-        $ncfas->sub_category = $key;
-        $ncfas->score = $value['interim'];
-        $ncfas->family_id = $_GET['id'];
-        $ncfas->save();
-    }
-
-    if($value['closure']){
-        $ncfas = new Ncfas();
-        $ncfas->family_id = $_GET['id'];
-        $ncfas->category = $category;
-        $ncfas->step = 3;
-        $ncfas->sub_category = $key;
-        $ncfas->score = $value['closure'];
-        $ncfas->family_id = $_GET['id'];
-        $ncfas->save();
-    }
-
 }
 
+$category_id = $category + 1;
+?>
+
+<!DOCTYPE html>
+<html>
+<head>
+    <!-- HTML meta refresh URL redirection -->
+    <meta http-equiv="refresh"
+          content="0; url=../ncfas/create.php?id=<?=$family_id ?>&category_id=<?=$category_id ?>">
+</head>
