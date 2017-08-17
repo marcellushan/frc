@@ -8,10 +8,11 @@ class Children extends DatabaseObject {
 	
 	protected static $table_name="children";
 	protected static $unit_id="id";
-    protected static $db_fields = array('name','birth_date','gender','race');
+    protected static $db_fields = array('name','birth_date','gender','race','family_id');
     public $name;
     public $birth_date;
     public $gender;
     public $race;
+    public $family_id;
 } // end class
 ?>

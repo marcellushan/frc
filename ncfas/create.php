@@ -30,23 +30,6 @@ $phase = 1;
         $sub_category_id++;
     }
     ?>
-<!--    </div>-->
-<!--    <h3 align="center">Category: Parental Capabilities</h3>-->
-<!--    --><?php
-//    $category = 2;
-//    $sub_categories =SubCategory::find_by_sql("select * from sub_categories where category_id ='" . $category . "'");
-////    $sub_category_id = 1;
-//    ?>
-<!--    <div class="row">-->
-<!--        --><?php
-//        foreach($sub_categories as $sub_category) {
-//            $name = $sub_category->name;
-//            include "../inc/ncfas_select.php";
-//            $sub_category_id++;
-//        }
-//        ?>
-<!--    </div>-->
-
 
 <button type="submit">submit</button>
 

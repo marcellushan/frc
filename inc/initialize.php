@@ -6,7 +6,7 @@ $servername = $_SERVER['SERVER_NAME'];
 //require_once(__DIR__ . '/php_functions.php');
 
 // load core objects
-//require_once('inc/database.php');
+require_once(__DIR__ . '/database.php');
 require_once(__DIR__ . '/database_object.php');
 
 // load database-related classes

@@ -43,39 +43,39 @@ class MySQLdatabase
 		$this->connection = null;
 	}
 
-	public function countQuery ($sql)
-	{
-		$result= $this->connection->prepare($sql);
-		$result->execute();
-		return $count=$result->rowCount();
-	}
+    public function countQuery ($sql)
+    {
+        $result= $this->connection->prepare($sql);
+        $result->execute();
+        return $count=$result->rowCount();
+    }
 
-	public function setQuery ($sql)
-	{
-		$result= $this->connection->prepare($sql);
-		$result->execute();
-		return $data = $result->fetchall();
-	}
-
-
-	public function rawQuery($sql)
-	{
-		$this->open_connection();
-		$this->connection->query($sql);
-	}
+    public function setQuery ($sql)
+    {
+        $result= $this->connection->prepare($sql);
+        $result->execute();
+        return $result;
+    }
 
 
-	public function quote($string)
-	{
-		$quoted_string = $this->connection->quote($string);
-		return $quoted_string;
-	}
+    public function rawQuery($sql)
+    {
+        $this->open_connection();
+        $this->connection->query($sql);
+    }
 
-	public function fetch_array($result_set)
-	{
-		$result_set= $result_set->fetch(PDO::FETCH_ASSOC);
-		return $result_set;
-	}
+
+    public function quote($string)
+    {
+        $quoted_string = $this->connection->quote($string);
+        return $quoted_string;
+    }
+
+    public function fetch_array($result_set)
+    {
+        $result_set= $result_set->fetch(PDO::FETCH_ASSOC);
+        return $result_set;
+    }
 
 } //close class
 

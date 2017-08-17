@@ -1,9 +1,12 @@
 <?php
 require_once __DIR__ ."/../inc/initialize.php";
 require_once __DIR__ ."/../inc/header.php";
+$family_id = $_GET['id'];
+$family = Family::find_by_id($family_id);
 ?>
 <div class="well">
-<form action="store.php" method="post">
+<form action="store.php?id=<?=$family_id ?>" method="post">
+    <h2>Family: <?=$family->name ?></h2>
     <h1>Add Child</h1>
     <div class="row">
         <div class="form-group col-md-6">

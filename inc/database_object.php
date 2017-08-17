@@ -84,7 +84,7 @@ class DatabaseObject {
 			  $sql .= ") VALUES ('";
 				$sql .= join("', '", array_values($attributes));
 				$sql .= "')";
-				//echo $sql;
+//				echo $sql;
 			  if($database->countQuery($sql)) 
 			  		{
 					    return $database->connection->lastInsertId();
