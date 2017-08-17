@@ -11,6 +11,7 @@ class AbuseFamily extends DatabaseObject {
 		protected static $db_fields = array( 'abuse_id','family_id');
 		public $abuse_id;
 		public $family_id;
+		public $name;
 //		public $team_mission_statement;
 //		public $team_type;
 //		public $final;

@@ -11,11 +11,9 @@ class FamilyIncome extends DatabaseObject {
 		protected static $db_fields = array( 'family_id','income_id');
 		public $family_id;
 		public $income_id;
-//		public $case_id;
-//		public $team_name;
-//		public $team_mission_statement;
-//		public $team_type;
-//		public $final;
+		public $name;
 
 } // end class
+
+
 ?>

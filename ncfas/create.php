@@ -17,7 +17,6 @@ $phase = 1;
 <form action="store.php?id=<?=$_GET['id'] ?>&category=<?=$_GET['category_id'] ?>&phase=<?=$phase ?>" method="post">
     <h3 align="center">Category: <?=$category->name ?> </h3>
     <?php
-//    $phase = "intake";
     $sub_category_id = 1;
     ?>
     <div class="row">
@@ -30,7 +29,7 @@ $phase = 1;
         $sub_category_id++;
     }
     ?>
-
+    </div>
 <button type="submit">submit</button>
 
 </form>

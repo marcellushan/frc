@@ -1,9 +1,10 @@
 <?php
 require_once __DIR__ ."/../inc/initialize.php";
 require_once __DIR__ ."/../inc/header.php";
+$family_id = $_GET['id'];
 ?>
 <div class="well">
-<form action="store.php" method="post">
+<form action="store.php?id=<?=$family_id ?>" method="post">
     <h1>Add Caregiver</h1>
     <div class="row">
         <div class="form-group col-md-6">

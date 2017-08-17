@@ -2,6 +2,10 @@ body {
     background-color: #1a6ecc;
 }
 
+.not_bold {
+    font-weight: normal;
+}
+
 /*.jumbotron {*/
     /*background-color: #1a6ecc;*/
 /*}*/
